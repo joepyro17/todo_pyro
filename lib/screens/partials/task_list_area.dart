@@ -7,7 +7,7 @@ class TaskListArea extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(top: 80.0, left: 20.0),
       width: double.infinity,
-      height: 0.50 * MediaQuery.of(context).size.height,
+      height: 0.60 * MediaQuery.of(context).size.height,
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
