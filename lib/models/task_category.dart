@@ -1,8 +1,13 @@
+import 'package:flutter/material.dart';
+
 import 'task.dart';
 
-class TaskCategoryModel {
+class CategoryModel {
   final String categoryName;
-  final List<TaskModel> taskItem;
+  List<TaskModel> taskItem = [];
+  final Color backgroundColor;
+  final int remainingTask;
+  final int totalTask;
 
-  TaskCategoryModel({this.categoryName, this.taskItem});
+  CategoryModel({@required this.categoryName, this.taskItem, @required this.backgroundColor, this.remainingTask = 0, this.totalTask = 0});
 }

@@ -5,27 +5,27 @@ class TaskCategoryCard extends StatelessWidget {
   final String cardTitle;
   final int remainingTask;
   final int totalTask;
+  final Function cardTapCallback;
 
   TaskCategoryCard(
       {this.backgroundColor,
       this.cardTitle,
       this.remainingTask,
-      this.totalTask});
+      this.totalTask,
+      this.cardTapCallback});
 
   @override
   Widget build(BuildContext context) {
     return Card(
         color: backgroundColor,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(50.0),
+          borderRadius: BorderRadius.circular(30.0),
         ),
         child: InkWell(
-            onTap: () {
-              print('Card tapped');
-            },
+            onTap: cardTapCallback,
             child: Container(
               padding: EdgeInsets.all(10.0),
-              width: 150,
+              width: 140,
               child: ListTile(
                 title: Text(
                   cardTitle,

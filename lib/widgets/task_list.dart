@@ -1,47 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:circular_check_box/circular_check_box.dart';
+import 'package:provider/provider.dart';
+import 'package:todo_pyro/mockups/task_mockup_data.dart';
+import 'package:todo_pyro/widgets/task_tile.dart';
 
 class TaskList extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      shrinkWrap: true,
-      children: <Widget>[
-        ListTile(
-          leading: CircularCheckBox(
-            value: true,
-            onChanged: (value){},
-          ),
-          title: Text('Do 30 minutes of cardio Tyi biking', style: TextStyle(decoration: TextDecoration.lineThrough,),),
-          subtitle: Text('Today', style: TextStyle(decoration: TextDecoration.lineThrough,),),
-        ),
-        ListTile(
-          leading: CircularCheckBox(
-            value: false,
-            onChanged: (value){},
-          ),
-          title: Text('Bicep curls 10 reps'),
-          subtitle: Text('Today'),
-        ),
-        ListTile(
-          leading: CircularCheckBox(
-            value: true,
-            onChanged: (value){},
-          ),
-          title: Text('Shoulder presses 10 reps', style: TextStyle(decoration: TextDecoration.lineThrough,),),
-          subtitle: Text('Today', style: TextStyle(decoration: TextDecoration.lineThrough,),),
-        ),
-        ListTile(
-          leading: CircularCheckBox(
-            value: false,
-            onChanged: (value){},
-          ),
-          title: Text('icycle crunhes 20 reps'),
-          subtitle: Text('02 Dec 2019'),
-        ),
-      ],
+    // ignore: missing_return
+    return Consumer<CategoryMockUpData>(// ignore: missing_return
+        builder: (context, categoryData, child) {
+      int categoryNo = categoryData.cardWasTappedID;
 
-    );
+      //Firstly, check if there is no taskItem (Empty category)
+      if(categoryData.categories[categoryNo].taskItem == null) {
+        return Container();
+      }
+      //Show tasks
+      else {
+        int taskLength = categoryData.categories[categoryNo].taskItem.length;
+        return Expanded(child: ListView.builder(scrollDirection: Axis.vertical,
+          shrinkWrap: true,
+          itemCount: taskLength,
+          itemBuilder: (context, index) {
+            final task = categoryData.categories[categoryNo].taskItem[index];
+            return TaskTile(taskTitle: task.name,
+              taskSubTitle: task.date.toString(),
+              isChecked: task.isDone,
+              checkboxCallback: (checkbokState) {},
+              longPressCallback: () {},);
+          },),);
+      }
+    });
   }
 }

@@ -5,14 +5,15 @@ class TaskListArea extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 80.0, left: 20.0),
+      padding: EdgeInsets.only(top: 0.40 * MediaQuery.of(context).size.height, left: 20.0),
       width: double.infinity,
-      height: 0.60 * MediaQuery.of(context).size.height,
       decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(80.0),
-          )),
+//          borderRadius: BorderRadius.only(
+//            bottomLeft: Radius.circular(50.0),
+//            bottomRight: Radius.circular(50.0),
+//          )
+      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,

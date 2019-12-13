@@ -13,4 +13,5 @@ class TaskModel {
   void toggleDone() {
     isDone = !isDone;
   }
+
 }
