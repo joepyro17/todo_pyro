@@ -14,7 +14,7 @@ class CatagoryCardArea extends StatelessWidget {
           color: Color(0xFF241331),
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(50.0),
-          //  bottomRight: Radius.circular(50.0)
+            //  bottomRight: Radius.circular(50.0)
           )),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -23,7 +23,10 @@ class CatagoryCardArea extends StatelessWidget {
           Container(
             height: 0.17 * MediaQuery.of(context).size.height,
             child: Consumer<CategoryMockUpData>(
-              builder: (context, categoryData, child) {
+                builder: (context, categoryData, child) {
+              if (categoryData.categories.isEmpty) {
+                return Container();
+              } else {
                 return ListView.builder(
                   scrollDirection: Axis.horizontal,
                   shrinkWrap: true,
@@ -32,19 +35,18 @@ class CatagoryCardArea extends StatelessWidget {
                     final category = categoryData.categories[index];
 
                     return TaskCategoryCard(
-                      cardTitle: category.categoryName,
-                      backgroundColor: category.backgroundColor,
-                      remainingTask: category.remainingTask,
-                      totalTask: category.totalTask,
-                      cardTapCallback: () {
-                        categoryData.cardWasTapped(index);
-                        categoryData.setTappedCategoryName();
-                      }
-                    );
+                        cardTitle: category.categoryName,
+                        backgroundColor: category.backgroundColor,
+                        remainingTask: category.remainingTask,
+                        totalTask: category.totalTask,
+                        cardTapCallback: () {
+                          categoryData.cardWasTapped(index);
+                          categoryData.setTappedCategoryName();
+                        });
                   },
                 );
               }
-            ),
+            }),
           ),
         ],
       ),

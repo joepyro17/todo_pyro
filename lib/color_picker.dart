@@ -2029,7 +2029,7 @@ class ColorPickerState extends State<ColorPicker> {
   //pickers
   int _index = 0;
   List<_IPicker> _pickers;
-  void _pickerOnChanged(_IPicker value) => this._index=this._pickers.indexOf(value);
+//  void _pickerOnChanged(_IPicker value) => this._index=this._pickers.indexOf(value);
 
 
   @override
@@ -2113,20 +2113,20 @@ class ColorPickerState extends State<ColorPicker> {
 
 
   //Dropdown
-  DropdownMenuItem<_IPicker> _buildDropdownMenuItems(_IPicker item) {
-    return new DropdownMenuItem<_IPicker>(
-        value: item,
-        child: new Padding(
-            padding: const EdgeInsets.fromLTRB(10.0,8.0,10.0,0.0),
-            child: new Text(
-              item.name,
-              style: this._index==item.index?
-              Theme.of(context).textTheme.headline.copyWith(fontSize: 18, color: Theme.of(context).accentColor):
-              Theme.of(context).textTheme.headline.copyWith(fontSize: 18),
-            )
-        )
-    );
-  }
+//  DropdownMenuItem<_IPicker> _buildDropdownMenuItems(_IPicker item) {
+//    return new DropdownMenuItem<_IPicker>(
+//        value: item,
+//        child: new Padding(
+//            padding: const EdgeInsets.fromLTRB(10.0,8.0,10.0,0.0),
+//            child: new Text(
+//              item.name,
+//              style: this._index==item.index?
+//              Theme.of(context).textTheme.headline.copyWith(fontSize: 18, color: Theme.of(context).accentColor):
+//              Theme.of(context).textTheme.headline.copyWith(fontSize: 18),
+//            )
+//        )
+//    );
+//  }
 
 
   Widget _buildHead() {
@@ -2168,62 +2168,62 @@ class ColorPickerState extends State<ColorPicker> {
     );
   }
 
-  Widget _buildDropdown() {
-    return new SizedBox(
-        height: 38,
-        child: Material(
+//  Widget _buildDropdown() {
+//    return new SizedBox(
+//        height: 38,
+//        child: Material(
+//
+//            type: MaterialType.button,
+//            color: Theme.of(context).cardColor,
+//            shadowColor: Colors.black26,
+//            elevation: 4.0,
+//            shape: const RoundedRectangleBorder(
+//              borderRadius: BorderRadius.all(Radius.circular(2.0)),
+//            ),
+//
+//            child: new DropdownButton<_IPicker>(
+//                iconSize: 32.0,
+//                isExpanded: true,
+//                isDense: true,
+//                style: Theme.of(context).textTheme.headline.copyWith(fontSize: 20),
+//                value: this._pickers[this._index],
+//                onChanged: (value)=>super.setState(()=>this._pickerOnChanged(value)),
+//                items: this._pickers.map(this._buildDropdownMenuItems).toList()
+//            )
+//
+//        )
+//    );
+//  }
 
-            type: MaterialType.button,
-            color: Theme.of(context).cardColor,
-            shadowColor: Colors.black26,
-            elevation: 4.0,
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(2.0)),
-            ),
-
-            child: new DropdownButton<_IPicker>(
-                iconSize: 32.0,
-                isExpanded: true,
-                isDense: true,
-                style: Theme.of(context).textTheme.headline.copyWith(fontSize: 20),
-                value: this._pickers[this._index],
-                onChanged: (value)=>super.setState(()=>this._pickerOnChanged(value)),
-                items: this._pickers.map(this._buildDropdownMenuItems).toList()
-            )
-
-        )
-    );
-  }
-
-  Widget _buildDropdown2() {
-    return new SizedBox(
-        height: 38,
-        child: new DecoratedBox(
-
-            decoration: BoxDecoration(
-                shape: BoxShape.rectangle,
-                border: new Border.all(
-                    color: Theme.of(context).dividerColor,
-                    width: 1
-                ),
-                borderRadius: const BorderRadius.all(
-                    const Radius.circular(3.0)
-                )
-            ),
-
-            child: new DropdownButton<_IPicker>(
-                iconSize: 32.0,
-                isExpanded: true,
-                isDense: true,
-                style: Theme.of(context).textTheme.headline.copyWith(fontSize: 20),
-                value: this._pickers[this._index],
-                onChanged: (value)=>super.setState(()=>this._pickerOnChanged(value)),
-                items: this._pickers.map(this._buildDropdownMenuItems).toList()
-            )
-
-        )
-    );
-  }
+//  Widget _buildDropdown2() {
+//    return new SizedBox(
+//        height: 38,
+//        child: new DecoratedBox(
+//
+//            decoration: BoxDecoration(
+//                shape: BoxShape.rectangle,
+//                border: new Border.all(
+//                    color: Theme.of(context).dividerColor,
+//                    width: 1
+//                ),
+//                borderRadius: const BorderRadius.all(
+//                    const Radius.circular(3.0)
+//                )
+//            ),
+//
+//            child: new DropdownButton<_IPicker>(
+//                iconSize: 32.0,
+//                isExpanded: true,
+//                isDense: true,
+//                style: Theme.of(context).textTheme.headline.copyWith(fontSize: 20),
+//                value: this._pickers[this._index],
+//                onChanged: (value)=>super.setState(()=>this._pickerOnChanged(value)),
+//                items: this._pickers.map(this._buildDropdownMenuItems).toList()
+//            )
+//
+//        )
+//    );
+//  }
 
   Widget _buildBody() {
     return new Container(
@@ -2268,9 +2268,9 @@ class ColorPickerState extends State<ColorPicker> {
                     this._buildAlphaPicker(),
                   ]
               ),
-              new Expanded(
+            //  new Expanded(
            //       child: this._buildBody()
-              )
+              //)
             ]
         );
 

@@ -5,11 +5,10 @@ import 'package:todo_pyro/color_picker.dart';
 
 // I have to put _controller outside the class, because I don't want it to be initialized everytime
 TextEditingController _controller = TextEditingController();
-Color newCategoryColor = Colors.purple;
+Color newCategoryColor;
 
 class AddCategory extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
-  // Test git
   @override
   Widget build(BuildContext context) {
     return ListView(

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:provider/provider.dart';
+import 'package:todo_pyro/mockups/task_mockup_data.dart';
 import 'package:todo_pyro/screens/add_category.dart';
 import 'package:todo_pyro/screens/add_task.dart';
 import 'package:todo_pyro/screens/partials/catagory_card_area.dart';

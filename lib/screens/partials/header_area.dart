@@ -7,7 +7,18 @@ class HeaderArea extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<CategoryMockUpData>(// ignore: missing_return
         builder: (context, categoryData, child) {
-      String name = categoryData.tappedCategoryName();
+      //String name = categoryData.tappedCategoryName();
+      String name;
+
+      // Check if categoryData has element
+      if (categoryData.categories.isEmpty) {
+        name = 'Empty';
+      }
+      // if has more than one, set 0 index to cardWasTapped
+      else {
+        categoryData.initCategoryName();
+        name = categoryData.tappedCategoryName();
+      }
 
       return Container(
         padding: EdgeInsets.only(top: 50.0),
@@ -18,7 +29,7 @@ class HeaderArea extends StatelessWidget {
             color: Color(0xFF241331),
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(50.0),
-           //   bottomRight: Radius.circular(50.0),
+              //   bottomRight: Radius.circular(50.0),
             )),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,

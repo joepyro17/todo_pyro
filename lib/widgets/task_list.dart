@@ -9,26 +9,30 @@ class TaskList extends StatelessWidget {
     // ignore: missing_return
     return Consumer<CategoryMockUpData>(// ignore: missing_return
         builder: (context, categoryData, child) {
-      int categoryNo = categoryData.cardWasTappedID;
-
-      //Firstly, check if there is no taskItem (Empty category)
-      if(categoryData.categories[categoryNo].taskItem == null) {
+      if(categoryData.categories.isEmpty){
         return Container();
       }
-      //Show tasks
-      else {
-        int taskLength = categoryData.categories[categoryNo].taskItem.length;
-        return Expanded(child: ListView.builder(scrollDirection: Axis.vertical,
-          shrinkWrap: true,
-          itemCount: taskLength,
-          itemBuilder: (context, index) {
-            final task = categoryData.categories[categoryNo].taskItem[index];
-            return TaskTile(taskTitle: task.name,
-              taskSubTitle: task.date.toString(),
-              isChecked: task.isDone,
-              checkboxCallback: (checkbokState) {},
-              longPressCallback: () {},);
-          },),);
+      else{
+        int categoryNo = categoryData.cardWasTappedID;
+        //Firstly, check if there is no taskItem (Empty category)
+        if(categoryData.categories[categoryNo].taskItem == null) {
+          return Container();
+        }
+        //Show tasks
+        else {
+          int taskLength = categoryData.categories[categoryNo].taskItem.length;
+          return Expanded(child: ListView.builder(scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            itemCount: taskLength,
+            itemBuilder: (context, index) {
+              final task = categoryData.categories[categoryNo].taskItem[index];
+              return TaskTile(taskTitle: task.name,
+                taskSubTitle: task.date.toString(),
+                isChecked: task.isDone,
+                checkboxCallback: (checkbokState) {},
+                longPressCallback: () {},);
+            },),);
+        }
       }
     });
   }
