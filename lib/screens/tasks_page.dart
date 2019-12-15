@@ -1,7 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
-import 'package:provider/provider.dart';
-import 'package:todo_pyro/mockups/task_mockup_data.dart';
 import 'package:todo_pyro/screens/add_category.dart';
 import 'package:todo_pyro/screens/add_task.dart';
 import 'package:todo_pyro/screens/partials/catagory_card_area.dart';
@@ -20,7 +19,7 @@ class TasksScreen extends StatelessWidget {
         animatedIconTheme: IconThemeData(size: 22.0),
         // this is ignored if animatedIcon is non null
         // child: Icon(Icons.add),
-       // visible: _dialVisible,
+        // visible: _dialVisible,
         // If true user is forced to close dial manually
         // by tapping main button and overlay is not rendered.
         closeManually: false,
@@ -37,16 +36,16 @@ class TasksScreen extends StatelessWidget {
         shape: CircleBorder(),
         children: [
           SpeedDialChild(
-              child: Icon(Icons.add_to_photos),
-              backgroundColor: Colors.purple,
-              label: 'Add Category',
-              labelStyle: TextStyle(fontSize: 18.0),
-              onTap: () {
-                showModalBottomSheet(
-                  context: context,
-                  builder: (context) => AddCategory(),
-                );
-              },
+            child: Icon(Icons.add_to_photos),
+            backgroundColor: Colors.purple,
+            label: 'Add Category',
+            labelStyle: TextStyle(fontSize: 18.0),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AddCategory()),
+              );
+            },
           ),
           SpeedDialChild(
             child: Icon(Icons.add),
@@ -54,25 +53,17 @@ class TasksScreen extends StatelessWidget {
             label: 'Add Task',
             labelStyle: TextStyle(fontSize: 18.0),
             onTap: () {
-              showModalBottomSheet(
-                context: context,
-                builder: (context) => AddTask(),
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AddTask()),
               );
             },
           ),
         ],
       ),
       body: Stack(
-        children: <Widget>[
-          TaskListArea(),
-          CatagoryCardArea(),
-          HeaderArea()
-        ],
+        children: <Widget>[TaskListArea(), CatagoryCardArea(), HeaderArea()],
       ),
     );
   }
 }
-
-
-
-

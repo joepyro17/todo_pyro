@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      builder: (context) => CategoryMockUpData(),
+      create: (context) => CategoryMockUpData(),
       child: MaterialApp(
         title: 'To Do List',
         theme: ThemeData(

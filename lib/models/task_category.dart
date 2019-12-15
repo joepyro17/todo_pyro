@@ -4,7 +4,7 @@ import 'task.dart';
 
 class CategoryModel {
   final String categoryName;
-  List<TaskModel> taskItem = [];
+  List<TaskModel> taskItem = List<TaskModel>();
   final Color backgroundColor;
   final int remainingTask;
   final int totalTask;

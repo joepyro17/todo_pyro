@@ -6,13 +6,15 @@ class TaskCategoryCard extends StatelessWidget {
   final int remainingTask;
   final int totalTask;
   final Function cardTapCallback;
+  final Function cardLongPressCallback;
 
   TaskCategoryCard(
       {this.backgroundColor,
       this.cardTitle,
       this.remainingTask,
       this.totalTask,
-      this.cardTapCallback});
+      this.cardTapCallback,
+      this.cardLongPressCallback});
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,7 @@ class TaskCategoryCard extends StatelessWidget {
         ),
         child: InkWell(
             onTap: cardTapCallback,
+            onLongPress: cardLongPressCallback,
             child: Container(
               padding: EdgeInsets.all(10.0),
               width: 140,

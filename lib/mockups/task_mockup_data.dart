@@ -20,14 +20,6 @@ class CategoryMockUpData extends ChangeNotifier {
           name: "Walking for 0.5 hours",
           date: DateTime.now(),
         ),
-        TaskModel(
-          name: "Sit Up",
-          date: DateTime.now(),
-        ),
-        TaskModel(
-          name: "Running for 10 Minute",
-          date: DateTime.now(),
-        ),
       ],
     )
   ];
@@ -42,7 +34,7 @@ class CategoryMockUpData extends ChangeNotifier {
       UnmodifiableListView(_categoryData);
 
   // This function does not need notifyListeners()
-  void initCategoryName(){
+  void initCategoryName() {
     _tappedCategoryName = _categoryData[_cardWasTappedID].categoryName;
   }
 
@@ -63,9 +55,21 @@ class CategoryMockUpData extends ChangeNotifier {
   }
 
   void addNewCategory({String name, Color color}) {
+    List<TaskModel> emptyTask = List<TaskModel>();
     CategoryModel newCategory =
-        CategoryModel(categoryName: name, backgroundColor: color);
+        CategoryModel(categoryName: name, backgroundColor: color, taskItem: emptyTask);
     _categoryData.add(newCategory);
+    notifyListeners();
+  }
+
+  void deleteCategory({int index}){
+    _categoryData.removeAt(index);
+    notifyListeners();
+  }
+
+  void addNewTask({int categoryIndex, String taskName, DateTime deadline}) {
+    TaskModel newTask = TaskModel(name: taskName, date: deadline);
+    _categoryData[categoryIndex].taskItem.add(newTask);
     notifyListeners();
   }
 }

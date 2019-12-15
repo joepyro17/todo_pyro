@@ -42,7 +42,11 @@ class CatagoryCardArea extends StatelessWidget {
                         cardTapCallback: () {
                           categoryData.cardWasTapped(index);
                           categoryData.setTappedCategoryName();
-                        });
+                        },
+                      cardLongPressCallback:  (){
+                          categoryData.deleteCategory(index: index);
+                      },
+                    );
                   },
                 );
               }
