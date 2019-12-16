@@ -26,10 +26,14 @@ class TaskList extends StatelessWidget {
             itemCount: taskLength,
             itemBuilder: (context, index) {
               final task = categoryData.categories[categoryNo].taskItem[index];
+              int remainingTask = categoryData.categories[categoryNo].remainingTask;
               return TaskTile(taskTitle: task.name,
                 taskSubTitle: task.date.toString(),
                 isChecked: task.isDone,
-                checkboxCallback: (checkbokState) {},
+                checkboxCallback: (checkbokState) {
+                  categoryData.updateTask(task:task);
+                  categoryData.remainingTask(categoryIndex: categoryNo);
+                },
                 longPressCallback: () {},);
             },),);
         }

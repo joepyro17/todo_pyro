@@ -11,6 +11,8 @@ class CategoryMockUpData extends ChangeNotifier {
     CategoryModel(
       categoryName: "Exercise",
       backgroundColor: Colors.purple,
+      remainingTask: 0,
+      totalTask: 2,
       taskItem: [
         TaskModel(
           name: "Running for 10 Minute",
@@ -72,4 +74,45 @@ class CategoryMockUpData extends ChangeNotifier {
     _categoryData[categoryIndex].taskItem.add(newTask);
     notifyListeners();
   }
+
+  void updateTask({TaskModel task}){
+    task.toggleDone();
+    notifyListeners();
+  }
+
+  void updateTotalTask({int categoryIndex, int totalTask}){
+    _categoryData[categoryIndex].totalTask = totalTask;
+    notifyListeners();
+  }
+
+  void remainingTask({int categoryIndex}){
+   // int length = _categoryData[categoryIndex].taskItem.length;
+    int totalDone = 0;
+
+    for ( var item in _categoryData[categoryIndex].taskItem){
+      if(item.isDone)
+         totalDone = totalDone + 1;
+    }
+
+    _categoryData[categoryIndex].remainingTask = totalDone;
+    notifyListeners();
+  }
+
+//  double remainingPercentage({int categoryIndex}){
+//
+//    int totalTask;
+//    int totalDone = 0;
+//    double remaining = 1.0;
+//
+//    totalTask = _categoryData[categoryIndex].totalTask;
+//
+//    for ( var item in _categoryData[categoryIndex].taskItem){
+//      if(item.isDone)
+//        totalDone = totalDone + 1;
+//    }
+//
+//    remaining = totalDone / totalTask;
+//    return remaining;
+//  }
+
 }

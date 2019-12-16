@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 
 class TaskCategoryCard extends StatelessWidget {
   final Color backgroundColor;
@@ -27,20 +28,30 @@ class TaskCategoryCard extends StatelessWidget {
             onTap: cardTapCallback,
             onLongPress: cardLongPressCallback,
             child: Container(
-              padding: EdgeInsets.all(10.0),
-              width: 140,
-              child: ListTile(
-                title: Text(
-                  cardTitle,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15.0,
-                      fontWeight: FontWeight.bold),
-                ),
-                subtitle: Text(
-                  '$remainingTask/$totalTask Tasks',
-                  style: TextStyle(color: Colors.white),
-                ),
+              padding: EdgeInsets.only(top:10.0),
+              width: 120,
+              child: Column(
+                children: <Widget>[
+                  Text(
+                    cardTitle,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 15.0,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 5.0,),
+                  Text(
+                    '$remainingTask/$totalTask Tasks',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  CircularPercentIndicator(
+                    radius: 40,
+                    lineWidth: 5.0,
+                    percent: remainingTask / totalTask,
+                    progressColor: Color(0xFF241331),
+                  ),
+                ],
+
               ),
             )));
   }

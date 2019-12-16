@@ -6,8 +6,8 @@ class CategoryModel {
   final String categoryName;
   List<TaskModel> taskItem = List<TaskModel>();
   final Color backgroundColor;
-  final int remainingTask;
-  final int totalTask;
+  int remainingTask;
+  int totalTask;
 
   CategoryModel({@required this.categoryName, this.taskItem, @required this.backgroundColor, this.remainingTask = 0, this.totalTask = 0});
 }

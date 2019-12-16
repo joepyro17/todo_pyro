@@ -7,7 +7,7 @@ class CatagoryCardArea extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 0.0, bottom: 50.0, right: 0.0),
+      padding: EdgeInsets.only(left: 0.0, bottom: 30.0, right: 0.0),
       width: double.infinity,
       height: 0.40 * MediaQuery.of(context).size.height,
       decoration: BoxDecoration(
@@ -44,7 +44,32 @@ class CatagoryCardArea extends StatelessWidget {
                           categoryData.setTappedCategoryName();
                         },
                       cardLongPressCallback:  (){
-                          categoryData.deleteCategory(index: index);
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context){
+                              return AlertDialog(
+                                title: Text('Confirm Delete'),
+                                content: Text('Are you sure you want to delete category? All tasks in this category will be deleted also'),
+                                actions: <Widget>[
+                                  FlatButton(
+                                    onPressed: (){
+                                      print('Confirm');
+                                      categoryData.deleteCategory(index: index);
+                                      Navigator.pop(context);
+                                    },
+                                    child: Text('Confirm'),
+                                  ),
+                                  FlatButton(
+                                    onPressed: (){
+                                      print('Cancel');
+                                      Navigator.pop(context);
+                                    },
+                                    child: Text('Cancel'),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
                       },
                     );
                   },

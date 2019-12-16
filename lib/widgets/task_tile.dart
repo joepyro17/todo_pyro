@@ -14,14 +14,17 @@ class TaskTile extends StatelessWidget {
     return ListTile(
       title: Text(
           taskTitle,
-      style: TextStyle(color: Colors.black),
+      style: TextStyle(
+          color: Colors.black,
+        decoration: isChecked ? TextDecoration.lineThrough : null
+      ),
       ),
       subtitle: Text(
           taskSubTitle,
-        style: TextStyle(color: Colors.black54),
+        style: TextStyle(color: Colors.black54, decoration: isChecked ? TextDecoration.lineThrough : null),
       ),
       trailing: Checkbox(
-        activeColor: Colors.amber,
+        activeColor: Colors.purple,
         value: isChecked,
         onChanged: checkboxCallback,
       ),

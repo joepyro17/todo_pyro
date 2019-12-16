@@ -58,6 +58,7 @@ class AddTask extends StatelessWidget {
       int categoryIndex =
           Provider.of<CategoryMockUpData>(context, listen: false)
               .cardWasTappedID;
+      int totalTask = Provider.of<CategoryMockUpData>(context, listen: false).categories[categoryIndex].totalTask;
 
       return MaterialApp(
         home: Scaffold(
@@ -131,17 +132,16 @@ class AddTask extends StatelessWidget {
                       onPressed: () {
                         if (_formKey.currentState.validate() &&
                             _pickedDateTime != null) {
-
-                          print('categoryIndex: $categoryIndex');
-                          print('taskName: ${_controller.text}');
-                          print('deadline: ${_pickedDateTime.toString()}');
-
+                          // Add New Task
                           Provider.of<CategoryMockUpData>(context,
                                   listen: false)
                               .addNewTask(
                                   categoryIndex: categoryIndex,
                                   taskName: _controller.text,
                                   deadline: _pickedDateTime);
+                          // Update Total Task in the category
+                          Provider.of<CategoryMockUpData>(context,
+                              listen: false).updateTotalTask(categoryIndex: categoryIndex, totalTask: totalTask + 1 );
 
                           _controller.clear();
                           Navigator.pop(context);

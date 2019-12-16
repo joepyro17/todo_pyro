@@ -34,11 +34,11 @@ class HeaderArea extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            Icon(
-              Icons.menu,
-              color: Colors.white,
-              size: 30,
-            ),
+//            Icon(
+//              Icons.menu,
+//              color: Colors.white,
+//              size: 30,
+//            ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
@@ -55,11 +55,11 @@ class HeaderArea extends StatelessWidget {
                 )
               ],
             ),
-            Icon(
-              Icons.info,
-              color: Colors.white,
-              size: 30,
-            ),
+//            Icon(
+//              Icons.info,
+//              color: Colors.white,
+//              size: 30,
+//            ),
           ],
         ),
       );
