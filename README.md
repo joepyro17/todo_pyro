@@ -1,7 +1,15 @@
 ## Todo Pyro - Simple Todo
-A simple and minial Todo list mobile app using Flutter
+A simple and minimal Todo list mobile app using Flutter
 
 ## Key Features
+- Easy to add / remove Category
+- Easy to add task and check when task is done
+- Can set color for each category
+
+## Future features
+- Facebook/Google sign in
+- Firebase integration
+- Animation 
 
 ## Screens
 ![Main Screen](https://github.com/joepyro17/todo_pyro/blob/master/screenshots/main.png)
