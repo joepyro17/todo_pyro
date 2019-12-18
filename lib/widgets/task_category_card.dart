@@ -16,7 +16,6 @@ class TaskCategoryCard extends StatelessWidget {
       this.totalTask,
       this.cardTapCallback,
       this.cardLongPressCallback});
-
   @override
   Widget build(BuildContext context) {
     return Card(

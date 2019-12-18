@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo_pyro/mockups/task_mockup_data.dart';
+import 'package:todo_pyro/state_management/task_data.dart';
 import 'package:todo_pyro/widgets/task_category_card.dart';
 import 'package:provider/provider.dart';
 
@@ -55,6 +55,8 @@ class CatagoryCardArea extends StatelessWidget {
                                     onPressed: (){
                                       print('Confirm');
                                       categoryData.deleteCategory(index: index);
+                                      categoryData.initCardWasTapped();
+                                      categoryData.initCategoryName();
                                       Navigator.pop(context);
                                     },
                                     child: Text('Confirm'),

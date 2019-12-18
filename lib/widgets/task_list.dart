@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_pyro/mockups/task_mockup_data.dart';
+import 'package:todo_pyro/state_management/task_data.dart';
 import 'package:todo_pyro/widgets/task_tile.dart';
+import 'package:intl/intl.dart';
 
 class TaskList extends StatelessWidget {
   @override
@@ -26,9 +27,8 @@ class TaskList extends StatelessWidget {
             itemCount: taskLength,
             itemBuilder: (context, index) {
               final task = categoryData.categories[categoryNo].taskItem[index];
-              int remainingTask = categoryData.categories[categoryNo].remainingTask;
               return TaskTile(taskTitle: task.name,
-                taskSubTitle: task.date.toString(),
+                taskSubTitle: DateFormat('yyyy-MM-dd kk:mm').format(task.date).toString(),
                 isChecked: task.isDone,
                 checkboxCallback: (checkbokState) {
                   categoryData.updateTask(task:task);

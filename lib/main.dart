@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo_pyro/mockups/task_mockup_data.dart';
+import 'package:todo_pyro/state_management/task_data.dart';
 import 'package:todo_pyro/screens/tasks_page.dart';
 import 'package:provider/provider.dart';
 

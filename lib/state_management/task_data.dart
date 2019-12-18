@@ -12,17 +12,60 @@ class CategoryMockUpData extends ChangeNotifier {
       categoryName: "Exercise",
       backgroundColor: Colors.purple,
       remainingTask: 0,
-      totalTask: 2,
+      totalTask: 6,
       taskItem: [
         TaskModel(
           name: "Running for 10 Minute",
           date: DateTime.now(),
+          isDone: false,
         ),
         TaskModel(
           name: "Walking for 0.5 hours",
           date: DateTime.now(),
+          isDone: false,
+        ),
+        TaskModel(
+          name: "Swimming",
+          date: DateTime.now(),
+          isDone: false,
+        ),
+        TaskModel(
+          name: "Warm down",
+          date: DateTime.now(),
+          isDone: false,
+        ),
+        TaskModel(
+          name: "Warm up",
+          date: DateTime.now(),
+          isDone: false,
+        ),
+        TaskModel(
+          name: "Walking",
+          date: DateTime.now(),
+          isDone: false,
         ),
       ],
+    ),
+    CategoryModel(
+      categoryName: "Work",
+      backgroundColor: Colors.blue,
+      remainingTask: 0,
+      totalTask: 2,
+      taskItem: [],
+    ),
+    CategoryModel(
+      categoryName: "Private",
+      backgroundColor: Colors.green,
+      remainingTask: 0,
+      totalTask: 2,
+      taskItem: [],
+    ),
+    CategoryModel(
+      categoryName: "Play with kids",
+      backgroundColor: Colors.deepOrangeAccent,
+      remainingTask: 0,
+      totalTask: 2,
+      taskItem: [],
     )
   ];
 
@@ -36,12 +79,17 @@ class CategoryMockUpData extends ChangeNotifier {
       UnmodifiableListView(_categoryData);
 
   // This function does not need notifyListeners()
+  void initCardWasTapped() {
+    _cardWasTappedID = 0;
+  }
+
   void initCategoryName() {
     _tappedCategoryName = _categoryData[_cardWasTappedID].categoryName;
   }
 
   void cardWasTapped(int index) {
     _cardWasTappedID = index;
+
     notifyListeners();
   }
 
@@ -58,13 +106,13 @@ class CategoryMockUpData extends ChangeNotifier {
 
   void addNewCategory({String name, Color color}) {
     List<TaskModel> emptyTask = List<TaskModel>();
-    CategoryModel newCategory =
-        CategoryModel(categoryName: name, backgroundColor: color, taskItem: emptyTask);
+    CategoryModel newCategory = CategoryModel(
+        categoryName: name, backgroundColor: color, taskItem: emptyTask);
     _categoryData.add(newCategory);
     notifyListeners();
   }
 
-  void deleteCategory({int index}){
+  void deleteCategory({int index}) {
     _categoryData.removeAt(index);
     notifyListeners();
   }
@@ -75,44 +123,30 @@ class CategoryMockUpData extends ChangeNotifier {
     notifyListeners();
   }
 
-  void updateTask({TaskModel task}){
+  void updateTask({TaskModel task}) {
     task.toggleDone();
     notifyListeners();
   }
 
-  void updateTotalTask({int categoryIndex, int totalTask}){
+  void updateTotalTask({int categoryIndex, int totalTask}) {
     _categoryData[categoryIndex].totalTask = totalTask;
     notifyListeners();
   }
 
-  void remainingTask({int categoryIndex}){
-   // int length = _categoryData[categoryIndex].taskItem.length;
+  void remainingTask({int categoryIndex}) {
+    // int length = _categoryData[categoryIndex].taskItem.length;
     int totalDone = 0;
 
-    for ( var item in _categoryData[categoryIndex].taskItem){
-      if(item.isDone)
-         totalDone = totalDone + 1;
+    for (var item in _categoryData[categoryIndex].taskItem) {
+      if (item.isDone) totalDone = totalDone + 1;
     }
 
     _categoryData[categoryIndex].remainingTask = totalDone;
     notifyListeners();
   }
 
-//  double remainingPercentage({int categoryIndex}){
-//
-//    int totalTask;
-//    int totalDone = 0;
-//    double remaining = 1.0;
-//
-//    totalTask = _categoryData[categoryIndex].totalTask;
-//
-//    for ( var item in _categoryData[categoryIndex].taskItem){
-//      if(item.isDone)
-//        totalDone = totalDone + 1;
-//    }
-//
-//    remaining = totalDone / totalTask;
-//    return remaining;
+//  void printJSON(){
+//    var printJSON = jsonEncode(_categoryData.toMap);
 //  }
 
 }

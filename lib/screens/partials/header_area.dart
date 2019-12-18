@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_pyro/mockups/task_mockup_data.dart';
+import 'package:todo_pyro/state_management/task_data.dart';
 
 class HeaderArea extends StatelessWidget {
   @override
@@ -23,7 +23,7 @@ class HeaderArea extends StatelessWidget {
       return Container(
         padding: EdgeInsets.only(top: 50.0),
         width: double.infinity,
-        height: 0.15 * MediaQuery.of(context).size.height,
+        height: 0.17 * MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
             border: Border.all(color: Colors.white10),
             color: Color(0xFF241331),

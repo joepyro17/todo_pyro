@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_pyro/mockups/task_mockup_data.dart';
+import 'package:todo_pyro/state_management/task_data.dart';
 import 'package:todo_pyro/color_picker.dart';
 
 // I have to put _controller outside the class, because I don't want it to be initialized everytime
