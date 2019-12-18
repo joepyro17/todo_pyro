@@ -4,7 +4,7 @@ A simple and minial Todo list mobile app using Flutter
 ## Key Features
 
 ## Screens
-![Main Screen](https://github.com/joepyro17/todo_pyro/screenshots/main.png)
+![Icon](https://github.com/joepyro17/todo_pyro/blob/master/android/app/src/main/res/mipmap-hdpi/ic_launcher.png)
 
 ## Installation
 ```bash
